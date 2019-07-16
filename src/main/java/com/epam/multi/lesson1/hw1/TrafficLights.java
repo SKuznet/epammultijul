@@ -2,22 +2,29 @@ package com.epam.multi.lesson1.hw1;
 
 import java.util.concurrent.TimeUnit;
 
-public class TrafficLights implements Runnable{
+public class TrafficLights implements Runnable {
 
+    private Thread green;
+    private Thread yellow;
+    private Thread red;
     private int greenTime;
     private int yellowTime;
-    private int redTime;
-    private Light current;
 
     public TrafficLights(int greenTime, int yellowTime, int redTime) {
         this.greenTime = greenTime;
         this.yellowTime = yellowTime;
-        this.redTime = redTime;
+        green = new Thread(Light.GREEN.setTime(greenTime, yellowTime + redTime), Light.GREEN.name());
+        yellow = new Thread(Light.YELLOW.setTime(yellowTime, redTime + greenTime), Light.YELLOW.name());
+        red = new Thread(Light.RED.setTime(redTime, greenTime + yellowTime), Light.RED.name());
     }
 
     public void run() {
         try {
-            turnOnGreen();
+            green.start();
+            TimeUnit.SECONDS.sleep(greenTime);
+            yellow.start();
+            TimeUnit.SECONDS.sleep(yellowTime);
+            red.start();
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
@@ -25,27 +32,26 @@ public class TrafficLights implements Runnable{
 
     /**
      * Gets name of current light
+     *
      * @return name of enum current
      */
     public String getLight() {
-        return current.name();
+        return getCurrent().getName();
     }
 
-    private void turnOnGreen() throws InterruptedException{
-        current = Light.GREEN;
-        TimeUnit.SECONDS.sleep(greenTime);
-        waitForYellow();
+    /**
+     * Turns off all lights
+     */
+    public void shutdown() {
+        green.interrupt();
+        yellow.interrupt();
+        red.interrupt();
     }
 
-    private void waitForYellow() throws InterruptedException{
-        current = Light.YELLOW;
-        TimeUnit.SECONDS.sleep(yellowTime);
-        waitForRed();
-    }
-
-    private void waitForRed() throws InterruptedException{
-        current = Light.RED;
-        TimeUnit.SECONDS.sleep(redTime);
-        turnOnGreen();
+    private Thread getCurrent() {
+        return green.getState().equals(Thread.State.WAITING) ? green
+                : yellow.getState().equals(Thread.State.WAITING) ? yellow
+                : red.getState().equals(Thread.State.WAITING) ? red
+                : null;
     }
 }

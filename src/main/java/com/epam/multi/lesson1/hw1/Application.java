@@ -15,12 +15,12 @@ public class Application {
 
             TrafficLights trafficLights = new TrafficLights(green, yellow, red);
             Thread work = new Thread(trafficLights);
-            work.setDaemon(true);
-            work.start();
 
+            work.start();
             while (!reader.readLine().equals("stop")) {
                 System.out.println(trafficLights.getLight());
             }
+            trafficLights.shutdown();
 
         } catch (IOException e) {
             e.printStackTrace();
