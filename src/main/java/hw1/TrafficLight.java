@@ -26,12 +26,13 @@ class TrafficLight {
         return result;
     }
 
-    private boolean isYellow(int normalizedTime) {
-        return normalizedTime < LightColors.RED.getDuration() + LightColors.YELLOW.getDuration();
-    }
-
     private boolean isRed(int normalizedTime) {
         return normalizedTime < LightColors.RED.getDuration();
+    }
+
+    private boolean isYellow(int normalizedTime) {
+        return normalizedTime >= LightColors.RED.getDuration()
+                && normalizedTime < LightColors.RED.getDuration() + LightColors.YELLOW.getDuration();
     }
 
     private int getNormalizedTime(int time) {
