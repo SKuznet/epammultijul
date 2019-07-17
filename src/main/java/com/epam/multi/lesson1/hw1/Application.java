@@ -35,6 +35,9 @@ public class Application {
         while (true) {
             try {
                 result = Integer.valueOf(reader.readLine());
+                if (result <= 0) {
+                    throw new NumberFormatException();
+                }
                 break;
             } catch (NumberFormatException e) {
                 System.out.print("Wrong input, try again: ");
