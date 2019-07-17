@@ -4,13 +4,19 @@ import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 
-public class TimePoints implements Runnable {
+/**
+ * Thread apples to traffic light
+ */
+public class TrafficLightThread implements Runnable {
     static BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
 
     public void run() {
         getLightColors();
     }
 
+    /**
+     * Method applies to traffic light and print light colors by periods of time
+     */
     private synchronized void getLightColors(){
         int[] periodsOfTime = new int[3];
 

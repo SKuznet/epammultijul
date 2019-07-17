@@ -2,7 +2,7 @@ package com.epam.multi.lesson1.homework;
 
 public class Main {
     public static void main(String[] args) {
-        TimePoints timePoints = new TimePoints();
+        TrafficLightThread timePoints = new TrafficLightThread();
         new Thread(timePoints).start();
         new Thread(timePoints).start();
         new Thread(timePoints).start();

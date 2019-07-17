@@ -6,9 +6,8 @@ package com.epam.multi.lesson1.homework;
 public class TrafficLight {
 
     /**
-     *
+     * Method print light colors in time points
      * @param timePoints
-     * @return
      */
     public void getLightColorsByTimePoints (int[] timePoints){
         LightColor lightColor = LightColor.RED;
@@ -19,34 +18,43 @@ public class TrafficLight {
         LightColor[] colorsInThisPeriod = new LightColor[biggestPoint];
 
         for (int i = 0; i<biggestPoint; i++){
-            if(lightColor.equals(LightColor.RED) && red < 2){
-                colorsInThisPeriod[i] = lightColor;
-                ++red;
-            } else if(lightColor.equals(LightColor.RED)) {
-                lightColor = LightColor.YELLOW;
-                colorsInThisPeriod[i] = lightColor;
-                red = 0;
-                ++yellow;
-            }
-
-            if(lightColor.equals(LightColor.YELLOW) && yellow < 3){
-                colorsInThisPeriod[i] = lightColor;
-                ++yellow;
-            } else if(lightColor.equals(LightColor.YELLOW)) {
-                lightColor = LightColor.GREEN;
-                colorsInThisPeriod[i] = lightColor;
-                yellow = 0;
-                ++green;
-            }
-
-            if(lightColor.equals(LightColor.GREEN) && green < 4){
-                colorsInThisPeriod[i] = lightColor;
-                ++green;
-            } else if(lightColor.equals(LightColor.GREEN)) {
-                lightColor = LightColor.RED;
-                colorsInThisPeriod[i] = lightColor;
-                green = 0;
-                ++red;
+            switch (lightColor){
+                case RED:{
+                    if(red < 2){
+                        colorsInThisPeriod[i] = lightColor;
+                        ++red;
+                    } else {
+                        lightColor = LightColor.YELLOW;
+                        colorsInThisPeriod[i] = lightColor;
+                        red = 0;
+                        ++yellow;
+                    }
+                }
+                break;
+                case YELLOW:{
+                    if(yellow < 3){
+                        colorsInThisPeriod[i] = lightColor;
+                        ++yellow;
+                    } else {
+                        lightColor = LightColor.GREEN;
+                        colorsInThisPeriod[i] = lightColor;
+                        yellow = 0;
+                        ++green;
+                    }
+                }
+                break;
+                case GREEN:{
+                    if(green < 2){
+                        colorsInThisPeriod[i] = lightColor;
+                        ++green;
+                    } else {
+                        lightColor = LightColor.RED;
+                        colorsInThisPeriod[i] = lightColor;
+                        green = 0;
+                        ++red;
+                    }
+                }
+                break;
             }
         }
 
@@ -57,7 +65,7 @@ public class TrafficLight {
     }
 
     /**
-     *
+     * Method return biggest integer in array
      * @param ints
      * @return
      */
