@@ -9,7 +9,7 @@ public class Trafficlight extends Thread implements Beautifulable {
     private final static int COUNT_OF_TIME_REQUESTS = 3;
     private final static int MINUTES_IN_AN_HOUR = 60;
     private static Scanner scanner = new Scanner(System.in);
-    private static List<Integer> timeList = new ArrayList<>();
+    private static List<Integer> inputTimeList = new ArrayList<>();
     private Integer mate;
 
     public static void main(String[] args) {
@@ -20,8 +20,7 @@ public class Trafficlight extends Thread implements Beautifulable {
     private static void mainProgramCycle() {
         while (true) {
             checkAndCorrectInputTime();
-
-            for (Integer time : timeList) {
+            for (Integer time : inputTimeList) {
                 Trafficlight thread = new Trafficlight();
                 thread.mate = time;
                 thread.run();
@@ -32,9 +31,9 @@ public class Trafficlight extends Thread implements Beautifulable {
     private static void checkAndCorrectInputTime() {
         String uncheckedInput;
         int resultCheckedInput;
-        timeList.clear();
+        inputTimeList.clear();
 
-        while (timeList.size() != COUNT_OF_TIME_REQUESTS) {
+        while (inputTimeList.size() != COUNT_OF_TIME_REQUESTS) {
 
             uncheckedInput = scanner.next();
             try {
@@ -43,11 +42,11 @@ public class Trafficlight extends Thread implements Beautifulable {
                     resultCheckedInput *= -1;
                 }
                 resultCheckedInput = resultCheckedInput >= MINUTES_IN_AN_HOUR ? resultCheckedInput % 60 : resultCheckedInput;
-                timeList.add(resultCheckedInput);
+                inputTimeList.add(resultCheckedInput);
 
             } catch (NumberFormatException e) {
                 System.err.println("Incorrect input! ");
-                timeList.clear();
+                inputTimeList.clear();
             }
         }
     }
@@ -77,11 +76,10 @@ public class Trafficlight extends Thread implements Beautifulable {
             default:
                 resultColor = null;
         }
-
-        beautifulOutput(resultColor);
+        System.out.println( beautifulOutput(resultColor));
     }
 
-    public void beautifulOutput(Color color) {
-        System.out.println("Its " + color + " color in " + getName());
+    public String beautifulOutput(Color color) {
+        return "Its " + color + " color in " + getName();
     }
 }
