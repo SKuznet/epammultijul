@@ -4,8 +4,7 @@ import java.util.Arrays;
 import java.util.concurrent.TimeUnit;
 
 class TrafficLight {
-
-    private int fullCycleDuration = Arrays.stream(LightColors.values()).mapToInt(LightColors::getDuration).sum();
+    private final int fullCycleDuration = Arrays.stream(LightColors.values()).mapToInt(LightColors::getDuration).sum();
 
     LightColors getCurrentLightColor(int time) {
         try {

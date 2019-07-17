@@ -39,7 +39,6 @@ public class TrafficActor extends AbstractActor {
             } catch (InterruptedException e) {
                 e.printStackTrace();
             }
-
             executorService.submit(new Runnable() {
                 public void run() {
                     final LightColors lightColor = trafficLight.getCurrentLightColor(value);
@@ -54,7 +53,6 @@ public class TrafficActor extends AbstractActor {
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
-
         executorService.shutdown();
     }
 }
