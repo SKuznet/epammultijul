@@ -1,88 +1,87 @@
 package com.epam.multi.lesson1.hm1.java;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Scanner;
 
-public class Trafficlight extends Thread implements CorrectInputable {
+public class Trafficlight extends Thread implements Beautifulable {
 
+    private final static int COUNT_OF_TIME_REQUESTS = 3;
     private final static int MINUTES_IN_AN_HOUR = 60;
     private static Scanner scanner = new Scanner(System.in);
+    private static List<Integer> timeList = new ArrayList<>();
+    private Integer mate;
 
     public static void main(String[] args) {
-        Thread thread1 = new Trafficlight();
-        Thread thread2 = new Trafficlight();
-        Thread thread3 = new Trafficlight();
-
         mainProgramCycle();
-
         scanner.close();
     }
 
     private static void mainProgramCycle() {
-        String uncheckedInput;
-        int checkedInput;
-
-        System.out.println("Press 'Y' for exit.");
-
         while (true) {
-            uncheckedInput = scanner.next();
+            checkAndCorrectInputTime();
 
-            if (uncheckedInput.contains("Y") || uncheckedInput.contains("y")) {
-                break;
-            } else {
-                checkedInput = checkAndCorrectInputTime(uncheckedInput);
+            for (Integer time : timeList) {
+                Trafficlight thread = new Trafficlight();
+                thread.mate = time;
+                thread.run();
             }
-
-            System.out.println(getСolorOfCorrespondingTime(checkedInput));
-
         }
     }
 
-    private static Color getСolorOfCorrespondingTime(final int time) {
-        int totalColorDelay = Color.GREEN.delay + Color.YELLOW.delay + Color.RED.delay;
-        switch (time % totalColorDelay) {
-            case 0:
-            case 1:
-                return Color.RED;
-            case 2:
-            case 3:
-            case 4:
-                return Color.YELLOW;
-            case 5:
-            case 6:
-            case 7:
-            case 8:
-                return Color.GREEN;
-            default:
-                return null;
-        }
-    }
+    private static void checkAndCorrectInputTime() {
+        String uncheckedInput;
+        int resultCheckedInput;
+        timeList.clear();
 
-    private static int checkAndCorrectInputTime(String uncheckedInput) {
-        int result = 0;
+        while (timeList.size() != COUNT_OF_TIME_REQUESTS) {
 
-        while (true) {
+            uncheckedInput = scanner.next();
             try {
-                result = Integer.parseInt(uncheckedInput);
-                if (result < 0) {
-                    result *= -1;
+                resultCheckedInput = Integer.parseInt(uncheckedInput);
+                if (resultCheckedInput < 0) {
+                    resultCheckedInput *= -1;
                 }
-                break;
+                resultCheckedInput = resultCheckedInput >= MINUTES_IN_AN_HOUR ? resultCheckedInput % 60 : resultCheckedInput;
+                timeList.add(resultCheckedInput);
+
             } catch (NumberFormatException e) {
                 System.err.println("Incorrect input! ");
-                uncheckedInput = scanner.next();
+                timeList.clear();
             }
         }
-
-        return result >= MINUTES_IN_AN_HOUR ? result % 60 : result;
     }
 
     @Override
     public void run() {
 
+        int totalColorDelay = Color.GREEN.delay + Color.YELLOW.delay + Color.RED.delay;
+        Color resultColor;
+
+        switch (this.mate % totalColorDelay) {
+            case 0:
+            case 1:
+                resultColor = Color.RED;
+                break;
+            case 2:
+            case 3:
+            case 4:
+                resultColor = Color.YELLOW;
+                break;
+            case 5:
+            case 6:
+            case 7:
+            case 8:
+                resultColor = Color.GREEN;
+                break;
+            default:
+                resultColor = null;
+        }
+
+        beautifulOutput(resultColor);
     }
 
-    public int timeInput(int minute) {
-
-        return 1;
+    public void beautifulOutput(Color color) {
+        System.out.println("Its " + color + " color in " + getName());
     }
 }
