@@ -30,18 +30,8 @@ public class TrafficLight extends Thread{
             try {
                 currentColor = red;
                 TimeUnit.SECONDS.sleep(redLightMinutes);
-            } catch (InterruptedException e) {
-                logger.error(e);
-            }
-
-            try {
                 currentColor = yellow;
                 TimeUnit.SECONDS.sleep(yellowLightMinutes);
-            } catch (InterruptedException e) {
-                logger.error(e);
-            }
-
-            try {
                 currentColor = green;
                 TimeUnit.SECONDS.sleep(greenLightMinutes);
             } catch (InterruptedException e) {
