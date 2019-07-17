@@ -12,6 +12,6 @@ public class TrafficLight {
         } else if (((time>=6)&&(time<=8))||(time == 0)) {
             return Lights.GREEN;
         }
-        return Lights.TRADFFICLIGHTISBROKEN;
+        return Lights.TRAFFICLIGHTISBROKEN;
     }
 }

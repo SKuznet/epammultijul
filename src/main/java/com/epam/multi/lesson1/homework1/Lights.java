@@ -4,5 +4,5 @@ public enum Lights {
     GREEN,
     YELLOW,
     RED,
-    TRADFFICLIGHTISBROKEN
+    TRAFFICLIGHTISBROKEN
 }
