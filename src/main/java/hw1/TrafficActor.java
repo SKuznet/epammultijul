@@ -10,6 +10,10 @@ import java.util.concurrent.TimeUnit;
 
 public class TrafficActor extends AbstractActor {
 
+    private final int[] values = {1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17};
+    private final TrafficLight trafficLight = new TrafficLight();
+    private final ExecutorService executorService = Executors.newFixedThreadPool(3);
+
     static Props props() {
         return Props.create(TrafficActor.class);
     }
@@ -29,9 +33,6 @@ public class TrafficActor extends AbstractActor {
     }
 
     private void makeAction() {
-        final int[] values = {1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17};
-        final TrafficLight trafficLight = new TrafficLight();
-        final ExecutorService executorService = Executors.newFixedThreadPool(3);
 
         for (int value : values) {
             try {
