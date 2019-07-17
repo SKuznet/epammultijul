@@ -1,4 +1,4 @@
-package com.epam.multi.lesson1;
+package main.java.com.epam.multi.lesson1;
 
 import java.util.concurrent.TimeUnit;
 
