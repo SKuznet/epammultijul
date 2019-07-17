@@ -8,10 +8,11 @@ import java.util.Scanner;
 
 public class FileArrayProvider {
 
-  List<Integer> listOfInts;
-  int[] resultArray;
-/*
-  Read int by int from file
+  private List<Integer> listOfInts;
+  private int[] resultArray;
+
+ /**
+  * Read integers from file one by one
   */
   public int[] readIntsInFile(String filename) throws IOException {
     listOfInts = new ArrayList<>();
@@ -31,6 +32,9 @@ public class FileArrayProvider {
     return resultArray;
   }
 
+/**
+ * Get next minute(int) from file
+ */
   public int getNextMinute() {
     int nextMinute = -1;
     if (!listOfInts.isEmpty()) {
@@ -40,8 +44,10 @@ public class FileArrayProvider {
     return nextMinute;
   }
 
+/**
+ * Check if there are more minutes(ints) in file
+ */
   public boolean hasNextMinute() {
     return !listOfInts.isEmpty();
   }
-
 }
