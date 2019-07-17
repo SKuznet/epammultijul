@@ -12,3 +12,7 @@
     ** javadoc - это хорошо!
     тесты!
     // clean code!
+    
+## records
+
+https://youtu.be/cJrrinQOHvg
