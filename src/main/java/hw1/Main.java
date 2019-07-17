@@ -3,12 +3,12 @@ package hw1;
 import java.util.Arrays;
 import java.util.List;
 
-public class ConsoleReader {
+public class Main {
     private LightController controller = new LightController();
     private List<Double> entries = Arrays.asList(1.0, 2.0, 2.1, 3.0, 5.0, 5.1, 6.0, 9.1);
 
     public static void main(String[] args) {
-        ConsoleReader consoleReader = new ConsoleReader();
+        Main consoleReader = new Main();
         consoleReader.readFromCollection();
     }
 
