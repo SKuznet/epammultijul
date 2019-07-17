@@ -14,56 +14,67 @@ import java.util.concurrent.TimeUnit;
 public class Application {
 
     final static Logger logger = LogManager.getLogger(Application.class);
+    final static TrafficLight trafficLight = new TrafficLight();
 
     public static void main(String[] args) {
-        final TrafficLight trafficLight = new TrafficLight();
-        try (BufferedReader br = new BufferedReader (new InputStreamReader(System.in))){
-            System.out.print ("Set minutes for traffic light (RYG) separated by space:");
-            String[] minutes = br.readLine().trim().split(" ");
 
-            Thread redColorThread = new Thread(new Runnable() {
-                @Override
-                public void run() {
-                    trafficLight.setRedLightMinutes(Integer.parseInt(minutes[0]));
-                }
-            });
+        try (BufferedReader br = new BufferedReader(new InputStreamReader(System.in))) {
+            System.out.print("Set minutes for traffic light (RYG) separated by space:");
+            String buffer = br.readLine();
+            String[] minutes = buffer.trim().split(" ");
 
-            Thread yellowColorThread = new Thread(new Runnable() {
-                @Override
-                public void run() {
-                    trafficLight.setYellowLightMinutes(Integer.parseInt(minutes[1]));
-                }
-            });
-
-            Thread greenColorThread = new Thread(new Runnable() {
-                @Override
-                public void run() {
-                    trafficLight.setGreenLightMinutes(Integer.parseInt(minutes[2]));
-                }
-            });
-
-            redColorThread.start();
-            yellowColorThread.start();
-            greenColorThread.start();
-
-            try {
-                TimeUnit.SECONDS.sleep(1);
-                trafficLight.run();
-            } catch (InterruptedException e){
-                logger.warn(e);
-            }
+            startThreads(minutes);
 
             for (int i = 0; i < 100; i++) {
-                try{
+                try {
                     TimeUnit.SECONDS.sleep(1);
                     System.out.println("Current color of traffic light is " + trafficLight.getCurrentColor());
-                } catch (InterruptedException e){
+                } catch (InterruptedException e) {
                     logger.warn("Cannot parse the light color " + e);
                 }
             }
-
         } catch (Exception e) {
             logger.error("Invalid entry " + e);
+        }
+    }
+
+    /**
+     * Method starts 3 color threads and trafficLight thread
+     *
+     * @param minutes custom strings from BufferedReader input separated by space
+     */
+    public static void startThreads(String[] minutes) {
+
+        Thread redColorThread = new Thread(new Runnable() {
+            @Override
+            public void run() {
+                trafficLight.setRedLightMinutes(Integer.parseInt(minutes[0]));
+            }
+        });
+
+        Thread yellowColorThread = new Thread(new Runnable() {
+            @Override
+            public void run() {
+                trafficLight.setYellowLightMinutes(Integer.parseInt(minutes[1]));
+            }
+        });
+
+        Thread greenColorThread = new Thread(new Runnable() {
+            @Override
+            public void run() {
+                trafficLight.setGreenLightMinutes(Integer.parseInt(minutes[2]));
+            }
+        });
+
+        redColorThread.start();
+        yellowColorThread.start();
+        greenColorThread.start();
+
+        try {
+            TimeUnit.SECONDS.sleep(1);
+            trafficLight.start();
+        } catch (InterruptedException e) {
+            logger.warn(e);
         }
     }
 }

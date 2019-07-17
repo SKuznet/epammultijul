@@ -8,11 +8,11 @@ import org.apache.logging.log4j.Logger;
 import java.util.concurrent.TimeUnit;
 
 /**
- * Traffic light entity implemented Runnable interface
+ * Traffic light entity extends Thread interface
  * Contains information about schedule, colors and current color
  */
 @Data
-public class TrafficLight implements Runnable{
+public class TrafficLight extends Thread{
     private int redLightMinutes;
     private int yellowLightMinutes;
     private int greenLightMinutes;
