@@ -7,6 +7,7 @@ import java.io.InputStreamReader;
 
 public class Main {
     public static void main(String[] args) {
+        final TrafficLight trafficLight = new TrafficLight();
         int[][] inputMinutes = new int[3][3];
         InputStreamReader isr = new InputStreamReader(System.in);
         BufferedReader br = new BufferedReader(isr);
@@ -18,19 +19,36 @@ public class Main {
                     inputMinutes[i][j] = Integer.parseInt(br.readLine());
                 }
             }
-            TrafficLightCheck check0 = new TrafficLightCheck(inputMinutes[0]);
-            TrafficLightCheck check1 = new TrafficLightCheck(inputMinutes[1]);
-            TrafficLightCheck check2 = new TrafficLightCheck(inputMinutes[2]);
-            new Thread(check0).start();
-            new Thread(check1).start();
-            new Thread(check2).start();
-        }
-        catch (NumberFormatException ex){
-            System.out.println("Wrong number format, try again...");
         }
         catch (IOException ex) {
-            System.out.println("You broke System.in...");
         }
 
+        final TrafficLightCheck check0 = new TrafficLightCheck(inputMinutes[0]);
+        final TrafficLightCheck check1 = new TrafficLightCheck(inputMinutes[1]);
+        final TrafficLightCheck check2 = new TrafficLightCheck(inputMinutes[2]);
+        Thread thread0 = new Thread(new Runnable() {
+            public void run() {
+                for(int i=0;i<3;i++) {
+                    System.out.println("thread0 var " + check0.getMinutes()[i] + "  " + trafficLight.checkLight(check0.getMinutes()[i]));
+                }
+            }
+        });
+        Thread thread1 = new Thread(new Runnable() {
+            public void run() {
+                for(int i=0;i<3;i++) {
+                    System.out.println("thread1 var " + check1.getMinutes()[i] + "  " + trafficLight.checkLight(check1.getMinutes()[i]));
+                }
+            }
+        });
+        Thread thread2 = new Thread(new Runnable() {
+            public void run() {
+                for(int i=0;i<3;i++) {
+                    System.out.println("thread2 var " + check2.getMinutes()[i] + "  " + trafficLight.checkLight(check2.getMinutes()[i]));
+                }
+            }
+        });
+        thread0.start();
+        thread1.start();
+        thread2.start();
     }
 }
