@@ -28,7 +28,6 @@ public class TrafficLightTest {
     @Test
     public void checkLightRed1() {
         assertEquals(Lights.RED, trafficLight.checkLight(1));
-
     }
     /**
      * Test checking light for number 2
@@ -36,7 +35,6 @@ public class TrafficLightTest {
     @Test
     public void checkLightRed2() {
         assertEquals(Lights.RED, trafficLight.checkLight(2));
-
     }
     /**
      * Test checking light for number 3
@@ -44,7 +42,6 @@ public class TrafficLightTest {
     @Test
     public void checkLightRed3() {
         assertEquals(Lights.YELLOW, trafficLight.checkLight(3));
-
     }
     /**
      * Test checking light for number 4
@@ -60,7 +57,6 @@ public class TrafficLightTest {
     @Test
     public void checkLightRed5() {
         assertEquals(Lights.YELLOW, trafficLight.checkLight(5));
-
     }
     /**
      * Test checking light for number 6
@@ -68,7 +64,6 @@ public class TrafficLightTest {
     @Test
     public void checkLightRed6() {
         assertEquals(Lights.GREEN, trafficLight.checkLight(6));
-
     }
     /**
      * Test checking light for number 7
@@ -76,7 +71,6 @@ public class TrafficLightTest {
     @Test
     public void checkLightRed7() {
         assertEquals(Lights.GREEN, trafficLight.checkLight(7));
-
     }
     /**
      * Test checking light for number 8
@@ -84,7 +78,6 @@ public class TrafficLightTest {
     @Test
     public void checkLightRed8() {
         assertEquals(Lights.GREEN, trafficLight.checkLight(8));
-
     }
     /**
      * Test checking light for number 9
@@ -92,7 +85,6 @@ public class TrafficLightTest {
     @Test
     public void checkLightRed9() {
         assertEquals(Lights.GREEN, trafficLight.checkLight(9));
-
     }
     /**
      * Test checking light for negative number
@@ -100,6 +92,5 @@ public class TrafficLightTest {
     @Test
     public void checkLightNegative() {
         assertEquals(Lights.WRONGINPUT, trafficLight.checkLight(-7));
-
     }
 }
