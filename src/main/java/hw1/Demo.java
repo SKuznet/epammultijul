@@ -5,7 +5,6 @@ import main.java.hw1.util.FileArrayProvider;
 
 public class Demo {
 
-
   public static void main(String[] args) throws IOException {
       FileArrayProvider fileProvider = new FileArrayProvider();
 
