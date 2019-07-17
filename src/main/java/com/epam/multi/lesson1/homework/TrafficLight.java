@@ -1,78 +1,53 @@
 package com.epam.multi.lesson1.homework;
 
 /**
- *Class provides traffic light behavior
+ * Class provides traffic light behavior
  */
 public class TrafficLight {
 
     /**
-     * Method print light colors in time points
+     * Method return light colors in array by time points
+     *
      * @param timePoints
+     * @return
      */
-    public void getLightColorsByTimePoints (int[] timePoints){
-        LightColor lightColor = LightColor.RED;
+    public LightColor[] getLightColorsByTimePoints(int[] timePoints) {
         int biggestPoint = biggest(timePoints);
-        int red = 0;
-        int yellow = 0;
-        int green = 0;
+        int j = 0;
         LightColor[] colorsInThisPeriod = new LightColor[biggestPoint];
-
-        for (int i = 0; i<biggestPoint; i++){
-            switch (lightColor){
-                case RED:{
-                    if(red < 2){
-                        colorsInThisPeriod[i] = lightColor;
-                        ++red;
-                    } else {
-                        lightColor = LightColor.YELLOW;
-                        colorsInThisPeriod[i] = lightColor;
-                        red = 0;
-                        ++yellow;
-                    }
-                }
-                break;
-                case YELLOW:{
-                    if(yellow < 3){
-                        colorsInThisPeriod[i] = lightColor;
-                        ++yellow;
-                    } else {
-                        lightColor = LightColor.GREEN;
-                        colorsInThisPeriod[i] = lightColor;
-                        yellow = 0;
-                        ++green;
-                    }
-                }
-                break;
-                case GREEN:{
-                    if(green < 2){
-                        colorsInThisPeriod[i] = lightColor;
-                        ++green;
-                    } else {
-                        lightColor = LightColor.RED;
-                        colorsInThisPeriod[i] = lightColor;
-                        green = 0;
-                        ++red;
-                    }
-                }
-                break;
+        LightColor[] colorsByTimePoints = new LightColor[timePoints.length];
+        for (int i = 0; i < biggestPoint; i++) {
+            if (j % 9 == 0) {
+                j = 0;
             }
+
+            if (j < 2) {
+                colorsInThisPeriod[i] = LightColor.RED;
+            } else if (j >= 2 && j < 5) {
+                colorsInThisPeriod[i] = LightColor.YELLOW;
+            } else {
+                colorsInThisPeriod[i] = LightColor.GREEN;
+            }
+            j++;
         }
 
-        for (int i = 0; i<timePoints.length; i++){
-            System.out.print(timePoints[i] + "=" + colorsInThisPeriod[timePoints[i]-1] + " ");
+        for (int i = 0; i < timePoints.length; i++) {
+            colorsByTimePoints[i] = colorsInThisPeriod[timePoints[i] - 1];
         }
 
+        return colorsByTimePoints;
     }
 
     /**
      * Method return biggest integer in array
+     *
      * @param ints
      * @return
      */
-    private int biggest(int[] ints){
+    private int biggest(int[] ints) {
         int biggest = 0;
-        for (int i = 0; i<ints.length; i++){
-            if(ints[i] > biggest){
+        for (int i = 0; i < ints.length; i++) {
+            if (ints[i] > biggest) {
                 biggest = ints[i];
             }
         }

@@ -18,21 +18,25 @@ public class TrafficLightThread implements Runnable {
      * Method applies to traffic light and print light colors by periods of time
      */
     private synchronized void getLightColors(){
-        int[] periodsOfTime = new int[3];
+        int[] timePoints = new int[3];
 
         try {
             for (int i = 0; i<3; i++){
                 System.out.println(Thread.currentThread() + " enter one integer (time in minute):");
                 String line;
                 if (!((line = reader.readLine()) == null)){
-                        periodsOfTime[i] = Integer.parseInt(line);
+                    timePoints[i] = Integer.parseInt(line);
                 }
             }
         }catch (IOException e){
             e.printStackTrace();
         }
 
-        new TrafficLight().getLightColorsByTimePoints(periodsOfTime);
+        TrafficLight trafficLight = new TrafficLight();
+        LightColor[] colors = trafficLight.getLightColorsByTimePoints(timePoints);
+        for (int i = 0; i<timePoints.length; i++){
+            System.out.print(timePoints[i] + "=" + colors[i] + " ");
+        }
         System.out.println();
     }
 }
