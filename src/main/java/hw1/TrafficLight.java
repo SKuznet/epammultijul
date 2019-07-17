@@ -21,13 +21,13 @@ public class TrafficLight implements Runnable {
       tmp = enteredMinute % 9;
 
       if (tmp >= 0 && tmp < 2) {
-        System.out.println(LightColor.RED + " "
+        System.out.println(LightColor.RED + " on " + enteredMinute + " minute "
             + Thread.currentThread().getName());
       } else if (tmp >= 2 && tmp < 5) {
-        System.out.println(LightColor.YELLOW + " "
+        System.out.println(LightColor.YELLOW + " on " + enteredMinute + " minute "
             + Thread.currentThread().getName());
       } else {
-        System.out.println(LightColor.GREEN + " "
+        System.out.println(LightColor.GREEN + " on " + enteredMinute + " minute "
             + Thread.currentThread().getName());
       }
     }

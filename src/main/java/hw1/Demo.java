@@ -2,14 +2,12 @@ package main.java.hw1;
 
 import java.io.IOException;
 import main.java.hw1.util.FileArrayProvider;
-import main.java.hw1.util.TrafficLightProvider;
 
 public class Demo {
 
 
   public static void main(String[] args) throws IOException {
       FileArrayProvider fileProvider = new FileArrayProvider();
-      TrafficLightProvider trafficLightProvider = new TrafficLightProvider();
 
       fileProvider.readIntsInFile("epammultijul/src/main/java/hw1/resources/Ints.txt");
 
