@@ -20,6 +20,4 @@ public class TrafficLight extends Thread {
     public static void setColor(String color) {
         TrafficLight.color = Colors.valueOf(color.toUpperCase());
     }
-
-
 }
