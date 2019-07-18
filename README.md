@@ -9,4 +9,4 @@
 ** javadoc - это хорошо!
 тесты!
 // clean code!
-![alt text](java/light/hw0/DZ_cuncurrency.png)
+![](resources/DZ_cuncurrency.png)
