@@ -8,7 +8,7 @@ public class ColorCalculator implements Calculator<Integer, Light> {
     @Override
     public Light calculate(final Integer value) {
         final Light result;
-        final Integer minutes = value % ONE_CYCLE_DURATION;
+        final int minutes = value % ONE_CYCLE_DURATION;
 
         if(value < 0) {
             throw new IllegalArgumentException("The value should not be negative");

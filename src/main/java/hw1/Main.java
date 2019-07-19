@@ -10,9 +10,7 @@ public class Main {
         ColorCalculator colorCalculator = new ColorCalculator();
         ExecutorService executorService = Executors.newFixedThreadPool(3);
         for(Integer i : values) {
-            executorService.submit(() -> {
-                System.out.println(colorCalculator.calculate(i));
-            });
+            executorService.submit(() -> System.out.println(colorCalculator.calculate(i)));
         }
         executorService.shutdown();
     }
