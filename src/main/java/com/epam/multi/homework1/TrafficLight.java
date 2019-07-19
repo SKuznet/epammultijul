@@ -20,21 +20,14 @@ public class TrafficLight {
     }
   }
 
-  public void setlight(int munute) {
-    switch (munute) {
-      case (1):
-      case (2):
-        list.get(0).interrupt();
-        break;
-      case (3):
-        list.get(1).interrupt();
-        break;
-      case (4):
-      case (5):
-        list.get(2).interrupt();
-        break;
-      default:
-        System.out.println("NO LIGHT");
+  public void setlight(int minute) {
+    minute %= 10;
+    if (minute > 5) {
+      list.get(2).interrupt();
     }
+    if (minute > 2 & minute < 6) {
+      list.get(1).interrupt();
+    }
+    if (minute < 3) list.get(0).interrupt();
   }
 }
