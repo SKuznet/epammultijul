@@ -1,4 +1,4 @@
-package light.hw0.enums;
+package light.hw1.enums;
 
 public enum State {
     RED, YELLOW, GREEN

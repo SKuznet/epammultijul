@@ -1,6 +1,6 @@
-package light.hw0;
+package light.hw1;
 
-import light.hw0.enums.State;
+import light.hw1.enums.State;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
