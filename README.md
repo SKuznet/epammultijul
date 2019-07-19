@@ -10,9 +10,9 @@
 ** javadoc - это хорошо!
 тесты!
 // clean code!
-![](resources/DZ1.png)
+![](https://github.com/SKuznet/epammultijul/blob/DobrenkiiKostya/src/resources/DZ1.png)
 
-##hw 2
+##hw2
 1) Сделать класс c имплементацией Runnable (использовать set priority) и вывести на консоль результат использвания приоритетов
 2) Сделать класс с имплементацией Callable (использовать Future метод get()) вывести результат из другого потока
-![](resources/DZ2.png)
+![](https://github.com/SKuznet/epammultijul/blob/DobrenkiiKostya/src/resources/DZ2.png)
