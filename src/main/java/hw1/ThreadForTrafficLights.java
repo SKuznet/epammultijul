@@ -1,4 +1,4 @@
-package com.epam.multi.lesson1.homework;
+package hw1;
 
 public class ThreadForTrafficLights {
 
