@@ -1,6 +1,6 @@
 package hw1;
 
 public class CommonResource {
-  int x = 0;
+    int x = 0;
 
 }

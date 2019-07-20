@@ -4,32 +4,32 @@ import java.util.concurrent.Semaphore;
 
 public class YellowThread implements Runnable {
 
-  CommonResource res;
-  Semaphore sem;
-  String name = "YellowThread";
+    CommonResource res;
+    Semaphore sem;
+    String name = "YellowThread";
 
-  YellowThread(CommonResource res, Semaphore sem){
-    this.res=res;
-    this.sem=sem;
-  }
-
-  @Override
-  public void run() {
-
-    while (true) {
-      try {
-        sem.acquire();
-        res.x = 1;
-        while (res.x < 3) {
-          Thread.sleep(6000);
-          System.out.println(this.name + ": " + res.x);
-          res.x++;
-        }
-      } catch (InterruptedException e) {
-        System.out.println("горит ЖЕЛТЫЙ");
-      }
-      System.out.println(name + " освобождает разрешение");
-      sem.release();
+    YellowThread(CommonResource res, Semaphore sem) {
+        this.res = res;
+        this.sem = sem;
     }
-  }
+
+    @Override
+    public void run() {
+
+        while (true) {
+            try {
+                sem.acquire();
+                res.x = 1;
+                while (res.x < 3) {
+                    Thread.sleep(6000);
+                    System.out.println(this.name + ": " + res.x);
+                    res.x++;
+                }
+            } catch (InterruptedException e) {
+                System.out.println("YELLOW");
+            }
+            System.out.println(name + " освобождает разрешение");
+            sem.release();
+        }
+    }
 }
