@@ -1,4 +1,4 @@
-package com.epam.multi.lesson1.hm1.java;
+package com.epam.multi.lesson1.hw1.java;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -10,7 +10,7 @@ public class Trafficlight extends Thread implements Beautifulable {
     private final static int MINUTES_IN_AN_HOUR = 60;
     private static Scanner scanner = new Scanner(System.in);
     private static List<Integer> inputTimeList = new ArrayList<>();
-    private Integer mate;
+    private Integer correctTime;
 
     public static void main(String[] args) {
         mainProgramCycle();
@@ -22,7 +22,7 @@ public class Trafficlight extends Thread implements Beautifulable {
             checkAndCorrectInputTime();
             for (Integer time : inputTimeList) {
                 Trafficlight thread = new Trafficlight();
-                thread.mate = time;
+                thread.correctTime = time;
                 thread.run();
             }
         }
@@ -34,7 +34,6 @@ public class Trafficlight extends Thread implements Beautifulable {
         inputTimeList.clear();
 
         while (inputTimeList.size() != COUNT_OF_TIME_REQUESTS) {
-
             uncheckedInput = scanner.next();
             try {
                 resultCheckedInput = Integer.parseInt(uncheckedInput);
@@ -43,7 +42,6 @@ public class Trafficlight extends Thread implements Beautifulable {
                 }
                 resultCheckedInput = resultCheckedInput >= MINUTES_IN_AN_HOUR ? resultCheckedInput % 60 : resultCheckedInput;
                 inputTimeList.add(resultCheckedInput);
-
             } catch (NumberFormatException e) {
                 System.err.println("Incorrect input! ");
                 inputTimeList.clear();
@@ -53,11 +51,10 @@ public class Trafficlight extends Thread implements Beautifulable {
 
     @Override
     public void run() {
-
         int totalColorDelay = Color.GREEN.delay + Color.YELLOW.delay + Color.RED.delay;
         Color resultColor;
 
-        switch (this.mate % totalColorDelay) {
+        switch (this.correctTime % totalColorDelay) {
             case 0:
             case 1:
                 resultColor = Color.RED;
@@ -74,7 +71,7 @@ public class Trafficlight extends Thread implements Beautifulable {
                 resultColor = Color.GREEN;
                 break;
             default:
-                resultColor = null;
+                throw new RuntimeException("Illegal argument");
         }
         System.out.println( beautifulOutput(resultColor));
     }
