@@ -18,7 +18,7 @@ public class Main {
         waitForNextTask();
 
         for (int i = 0; i < 10; i++) {
-            results.add(executorService.submit(new com.epam.multi.lesson3.TaskWithResult(i)));
+            results.add(executorService.submit(new TestCollable()));
         }
 
         for (Future<String> fs: results) {
@@ -30,8 +30,6 @@ public class Main {
                 executorService.shutdown();
             }
         }
-
-
     }
 
     static private void waitForNextTask(){
