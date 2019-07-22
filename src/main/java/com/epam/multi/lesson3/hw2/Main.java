@@ -8,15 +8,31 @@ import java.util.concurrent.Future;
 
 public class Main {
     public static void main(String[] args) {
-        ExecutorService executorService = Executors.newCachedThreadPool();
-        ArrayList<Future<String>> results = new ArrayList<>();
+        Main main = new Main();
+        main.executeFirstTask();
+        main.waitForNextTask();
+        main.executeSecondTask();
+    }
 
+    private ExecutorService executorService = Executors.newCachedThreadPool();
+    private ArrayList<Future<String>> results = new ArrayList<>();
+
+    private void executeFirstTask(){
         for (int i = 0; i < 5; i++) {
             executorService.execute(new TestRunnable(i+1));
         }
+    }
 
-        waitForNextTask();
+    private void waitForNextTask(){
+        try {
+            Thread.sleep(500);
+            System.out.println();
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+    }
 
+    private void executeSecondTask(){
         for (int i = 0; i < 10; i++) {
             results.add(executorService.submit(new TestCollable()));
         }
@@ -29,14 +45,6 @@ public class Main {
             } finally {
                 executorService.shutdown();
             }
-        }
-    }
-
-    static private void waitForNextTask(){
-        try {
-            Thread.sleep(500);
-        } catch (InterruptedException e) {
-            e.printStackTrace();
         }
     }
 }
