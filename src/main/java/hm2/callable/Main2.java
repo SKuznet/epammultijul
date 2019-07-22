@@ -1,9 +1,6 @@
 package main.java.hm2.callable;
 
-import java.util.concurrent.Callable;
-import java.util.concurrent.ExecutorService;
-import java.util.concurrent.Executors;
-import java.util.concurrent.Future;
+import java.util.concurrent.*;
 
 public class Main2 {
 
@@ -12,7 +9,14 @@ public class Main2 {
         for (int i = 0; i < 5; i++) {
             Callable<String> callable = new CallableClass();
             Future<String> stringFuture = service.submit(callable);
-            System.out.println(stringFuture);
+            try {
+                String text = stringFuture.get();
+                System.out.println(text);
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            } catch (ExecutionException e) {
+                e.printStackTrace();
+            }
         }
         service.shutdown();
     }
