@@ -11,7 +11,7 @@ public class Joiner extends Thread {
 
     @Override
     public void run() {
-        try{
+        try {
             sleeper.join();
         } catch (InterruptedException e) {
             System.err.println("interrupted");
@@ -19,4 +19,5 @@ public class Joiner extends Thread {
 
         System.out.println(getName() + " join is end!");
     }
+
 }

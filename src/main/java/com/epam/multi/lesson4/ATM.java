@@ -9,20 +9,20 @@ public class ATM {
 
     private static void getMoney(int amount) {
 
-        synchronized (key) {
-
-            if (amount <= money) {
-                try {
-                    TimeUnit.MILLISECONDS.sleep(1000);
-                } catch (InterruptedException e) {
-                    e.printStackTrace();
-                }
-                money -= amount;
-                System.err.println("AlL OK! New amount:" + money);
-            } else {
-                System.err.println("Not enough money :(");
-            }
-        }
+        // logic
+       synchronized (key) {
+           if (amount <= money) {
+               try {
+                   TimeUnit.MILLISECONDS.sleep(1000);
+               } catch (InterruptedException e) {
+                   e.printStackTrace();
+               }
+               money -= amount;
+               System.err.println("ALL OK! New amount: " + money);
+           } else {
+               System.err.println("Not enough money :(");
+           }
+       }
     }
 
     public static void main(String[] args) {

@@ -14,7 +14,7 @@ public class WaitNotifyExample {
                 for (int i = 0; i < 10; i++) {
                     System.err.println(i);
 
-                    if(i == 3) {
+                    if (i == 3) {
                         synchronized (key) {
                             key.notifyAll();
                         }
