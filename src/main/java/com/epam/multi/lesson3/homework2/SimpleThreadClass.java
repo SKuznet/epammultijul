@@ -8,8 +8,8 @@ public class SimpleThreadClass implements  Runnable {
         priority = startPriority;
     }
     public void run() {
-        for (int i = 0; i < 100; i++) {
-            System.out.println("Hello from" + Thread.currentThread().getName() + "with number " + i);
+        for (int i = 0; i < 10; i++) {
+            System.out.println("Hello from " + Thread.currentThread().getName());
         }
     }
 }
