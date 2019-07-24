@@ -1,6 +1,6 @@
-package com.epam.multi.lesson1.entities;
+package hw1.lesson1.entities;
 
-import com.epam.multi.lesson1.Application;
+import hw1.lesson1.Application;
 import lombok.Data;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;

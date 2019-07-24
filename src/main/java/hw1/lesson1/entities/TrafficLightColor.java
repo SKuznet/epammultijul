@@ -1,4 +1,4 @@
-package com.epam.multi.lesson1.entities;
+package hw1.lesson1.entities;
 
 public enum TrafficLightColor {
     RED,

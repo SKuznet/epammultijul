@@ -1,6 +1,6 @@
-package com.epam.multi.lesson1;
+package hw1.lesson1;
 
-import com.epam.multi.lesson1.entities.TrafficLight;
+import hw1.lesson1.entities.TrafficLight;
 import org.junit.Test;
 
 
