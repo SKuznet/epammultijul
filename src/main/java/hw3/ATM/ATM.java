@@ -1,10 +1,18 @@
 package hw3.ATM;
 
+import java.util.concurrent.TimeUnit;
+
 public class ATM {
     public static final  ATM INSTANCE = new ATM();
     private static final Object key = new Object();
 
     public void getMoney(int amount) {
+        try{
+            TimeUnit.SECONDS.sleep(1);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+
         synchronized (key) {
             int money = Account.INSTANCE.getMoneyAmount();
             if (amount <= money) {

@@ -1,6 +1,6 @@
-package hw1.lesson1;
+package hw1;
 
-import hw1.lesson1.entities.TrafficLight;
+import hw1.entities.TrafficLight;
 import org.junit.Test;
 
 
