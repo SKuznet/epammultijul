@@ -21,6 +21,8 @@
     2) Сделать класс с имплементацией Callable (использовать Future метод get()) вывести результат из другого потока
 
 https://youtu.be/cJrrinQOHvg
+https://youtu.be/3u_yteR1nwc
+https://youtu.be/5bKED_Cacyg
 
 ## ATM (банкомат) - сделать с учетом ООП (использовать паттерны)
 
