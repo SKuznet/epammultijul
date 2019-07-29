@@ -25,5 +25,4 @@ public class CastSpell implements Runnable {
             System.out.println("Thread " +Thread.currentThread().getName() + ": " + i);
         }
     }
-
 }

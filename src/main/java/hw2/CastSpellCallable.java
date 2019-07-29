@@ -16,5 +16,4 @@ public class CastSpellCallable implements Callable {
         TimeUnit.MILLISECONDS.sleep(10);
         return "CastSpellCallable id is: " + id;
     }
-
 }

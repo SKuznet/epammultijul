@@ -9,8 +9,6 @@ public class RunnableDemo {
         ExecutorService  executorService = Executors.newCachedThreadPool();
         executorService.execute(new CastSpell(Thread.MIN_PRIORITY));
         executorService.execute(new CastSpell(Thread.MAX_PRIORITY));
-    //    executorService.execute(new CastSpell(Thread.NORM_PRIORITY));
         executorService.shutdown();
     }
-
 }

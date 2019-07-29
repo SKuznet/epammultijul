@@ -22,7 +22,5 @@ public class CallableDemo {
                 executorService.shutdown();
             }
         }
-
     }
-
 }
