@@ -1,4 +1,4 @@
-package main.java.hm3.atm;
+package main.java.hw3.atm;
 
 import java.util.concurrent.locks.Lock;
 import java.util.concurrent.locks.ReentrantLock;
