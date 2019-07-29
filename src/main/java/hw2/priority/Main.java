@@ -1,4 +1,4 @@
-package main.java.hm2;
+package main.java.hm2.priority;
 
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;

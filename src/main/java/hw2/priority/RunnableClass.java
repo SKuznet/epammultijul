@@ -1,4 +1,4 @@
-package main.java.hm2;
+package main.java.hm2.priority;
 
 public class RunnableClass implements Runnable {
     private static int priority = 1;
