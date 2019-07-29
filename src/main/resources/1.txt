@@ -1,0 +1,18 @@
+public class Main {
+
+    public static void main(String[] args) {
+          sout(getCount());
+    }
+
+    private static int getCount() {
+        int i = 5;
+        try {
+            throw new IOException();
+        } catch(IOException e) {
+            i = i + 1;
+            return i;
+        } finally {
+            i = 10;
+        }
+    }
+}
