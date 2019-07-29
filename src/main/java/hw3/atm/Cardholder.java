@@ -1,4 +1,4 @@
-package main.java.hm3.atm;
+package main.java.hw3.atm;
 
 public class Cardholder extends Thread{
 
