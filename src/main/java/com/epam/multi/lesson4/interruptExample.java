@@ -2,7 +2,7 @@ package com.epam.multi.lesson4;
 
 import java.util.concurrent.TimeUnit;
 
-public class InterruptExample {
+class InterruptExample {
     public static void main(String[] args) {
         Thread thread = new Thread(new Runnable() {
             @Override
