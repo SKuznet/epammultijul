@@ -29,3 +29,5 @@ https://youtu.be/5bKED_Cacyg
 ## Повторить Atomic (сделать какой-нибудь пример)
 
 ## Посмотреть про Lock - поэксперементировать с lockInterruptibly() (пример см в lesson 5)
+
+## Использовать Semaphore, CountDownLatch, Exchanger (свои примеры)
