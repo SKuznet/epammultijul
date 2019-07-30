@@ -1,4 +1,4 @@
-package com.epam.multi.lesson1.homework1;
+package com.epam.multi.homeworks.homework1;
 
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.Test;
