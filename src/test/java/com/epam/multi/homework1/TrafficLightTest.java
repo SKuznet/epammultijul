@@ -7,7 +7,7 @@ import java.util.List;
 
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotEquals;
-
+//old homework - no need to see it again, please
 public class TrafficLightTest {
 
     private List<String> light = new ArrayList<>();

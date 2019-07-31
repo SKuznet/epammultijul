@@ -1,6 +1,5 @@
 package com.epam.multi.homework1;
-
-
+//old homework - no need to see it again, please
 public class Main {
     public static void main(String[] args) {
 
