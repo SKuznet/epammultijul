@@ -13,20 +13,23 @@ public class ConditionExample {
         new Thread(consumer).start();
     }
 }
-class Store{
+
+class Store {
     private ReentrantLock lock;
     private Condition condition;
     private int product;
 
-    public Store(){
+    public Store() {
         lock = new ReentrantLock();
         condition = lock.newCondition();
     }
 
-    public void get(){
+    public void get() {
         lock.lock();
-        try{
-            while(product < 1) {
+
+        try {
+            while (product < 1) {
+                // infinity sleep
                 condition.await();
             }
 
@@ -41,21 +44,25 @@ class Store{
         } finally {
             lock.unlock();
         }
+
     }
 
-    public void put(){
+    public void put() {
         lock.lock();
 
-        try{
-            while(product >= 3){
+        try {
+            while (product >= 3) {
                 condition.await();
             }
+
             product++;
 
             System.out.println("Manufacturer added 1 new product");
             System.out.println("Products on storage: " + product);
 
+            // signal to all
             condition.signalAll();
+
 
         } catch (InterruptedException e) {
             e.printStackTrace();
@@ -63,10 +70,9 @@ class Store{
             lock.unlock();
         }
     }
-
 }
 
-class Manufacturer implements Runnable{
+class Manufacturer implements Runnable {
     private Store store;
 
     public Manufacturer(Store store) {
