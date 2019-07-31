@@ -25,6 +25,7 @@ https://youtu.be/3u_yteR1nwc
 https://youtu.be/5bKED_Cacyg
 https://youtu.be/B0H1xwingRk
 https://youtu.be/pnTPe5BX9rY
+https://youtu.be/Ko-7ji7VauM
 
 ## ATM (банкомат) - сделать с учетом ООП (использовать паттерны)
 
