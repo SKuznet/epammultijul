@@ -1,4 +1,4 @@
-package com.epam.multi.homework1.light;
+package com.epam.multi.homework1.trafficlight.light;
 
 public abstract class Light implements Runnable {
   private String color;

@@ -1,4 +1,4 @@
-package com.epam.multi.homework3.lockinterrupt;
+package com.epam.multi.homework5.lockinterruptibly;
 
 import java.util.concurrent.locks.ReentrantLock;
 

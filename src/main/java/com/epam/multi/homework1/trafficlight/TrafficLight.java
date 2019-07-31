@@ -1,8 +1,8 @@
-package com.epam.multi.homework1;
+package com.epam.multi.homework1.trafficlight;
 
-import com.epam.multi.homework1.light.GreenLight;
-import com.epam.multi.homework1.light.RedLight;
-import com.epam.multi.homework1.light.YellowLight;
+import com.epam.multi.homework1.trafficlight.light.GreenLight;
+import com.epam.multi.homework1.trafficlight.light.RedLight;
+import com.epam.multi.homework1.trafficlight.light.YellowLight;
 import java.util.LinkedList;
 import java.util.List;
 

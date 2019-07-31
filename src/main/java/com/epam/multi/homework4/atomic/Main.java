@@ -1,4 +1,4 @@
-package com.epam.multi.homework3.atomic;
+package com.epam.multi.homework4.atomic;
 
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;

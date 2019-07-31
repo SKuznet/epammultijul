@@ -1,4 +1,4 @@
-package com.epam.multi.homework1;
+package com.epam.multi.homework1.trafficlight;
 
 public class Main {
   public static void main(String[] args) {

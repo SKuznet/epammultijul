@@ -1,4 +1,4 @@
-package com.epam.multi.homework3.atomic;
+package com.epam.multi.homework4.atomic;
 
 public class AtomicIncrement implements Runnable {
   int number;
