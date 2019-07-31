@@ -1,13 +1,19 @@
 package com.epam.multi.homework2;
 
-public class ThreadClass extends Thread {
+/**
+ * Class release thread priority logic
+ */
+public class PriorityClass implements Runnable {
 
     private int priority;
 
-    ThreadClass(int priority) {
+    PriorityClass(int priority) {
         this.priority = priority;
     }
 
+    /**
+     * Sets priority of current thread and shows its name with priority number
+     */
     @Override
     public void run() {
         Thread.currentThread().setPriority(priority);

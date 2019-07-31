@@ -11,7 +11,6 @@ import static org.junit.Assert.assertNotEquals;
 public class TrafficLightTest {
 
     private List<String> light = new ArrayList<>();
-    private int currentTime = 0;
 
     private TrafficLight tLight1 = new TrafficLight();
     private TrafficLight tLight2 = new TrafficLight(20);
