@@ -16,7 +16,6 @@ public class CountDownLatchTouristGroup {
         } catch (InterruptedException e) {
             System.err.println(e.getMessage());
         }
-
         System.out.println("Group is ready, we can move on!");
     }
 }
