@@ -1,4 +1,4 @@
-package ConditionExercise;
+package condition;
 
 public class Customer implements Runnable{
     private Store store;

@@ -1,4 +1,4 @@
-package ConditionExercise;
+package condition;
 
 public class Factory implements Runnable{
     private Store store;

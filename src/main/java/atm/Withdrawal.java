@@ -1,6 +1,5 @@
-package ATM;
+package atm;
 
-import java.util.concurrent.Callable;
 import java.util.concurrent.TimeUnit;
 
 public class Withdrawal implements Runnable {
