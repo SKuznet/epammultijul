@@ -13,7 +13,7 @@ public class IllegalCurrencyExchanger implements Runnable {
     public void run() {
         for (int i = 0; i < 3; i++) {
             try {
-                amount = exchanger.exchange(100 + (int)(Math.random() * ((500 - 100) + 1)));
+                amount = exchanger.exchange(100 + (int)(Math.random() * ((3500 - 100) + 1)));
             } catch (InterruptedException e) {
                 System.err.println(e.getMessage());
             }
