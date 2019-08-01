@@ -21,6 +21,7 @@ public class AtomicIntegerHW implements Runnable {
         ExecutorService executorService = Executors.newCachedThreadPool();
         AtomicIntegerHW atomicIntegerHW = new AtomicIntegerHW();
         executorService.execute(atomicIntegerHW);
+        executorService.shutdown();
 
         while (true) {
             int val = atomicIntegerHW.getValue();
