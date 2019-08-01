@@ -1,4 +1,4 @@
-package com.epam.multi.lesson4.hw3.entities;
+package com.epam.multi.lesson4.hw3.ATM.entities;
 
 public class User {
 

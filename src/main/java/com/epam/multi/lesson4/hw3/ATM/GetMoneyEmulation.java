@@ -1,7 +1,7 @@
-package com.epam.multi.lesson4.hw3;
+package com.epam.multi.lesson4.hw3.ATM;
 
-import com.epam.multi.lesson4.hw3.entities.ATM;
-import com.epam.multi.lesson4.hw3.entities.User;
+import com.epam.multi.lesson4.hw3.ATM.entities.ATM;
+import com.epam.multi.lesson4.hw3.ATM.entities.User;
 
 public class GetMoneyEmulation implements Runnable {
 
