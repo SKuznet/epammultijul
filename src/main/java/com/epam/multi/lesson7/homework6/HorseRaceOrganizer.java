@@ -10,11 +10,11 @@ public class HorseRaceOrganizer {
         BidDependentPlayer bidDependentPlayer = new BidDependentPlayer( 600, "Alex");
         int nHorses = 7;
         int pause  = 200;
+        InputStreamReader isr = new InputStreamReader(System.in);
+        BufferedReader br = new BufferedReader(isr);
         try {
             while (true) {
                 CountDownLatch countDownLatch = new CountDownLatch(1);
-                InputStreamReader isr = new InputStreamReader(System.in);
-                BufferedReader br = new BufferedReader(isr);
                 System.out.println(bidDependentPlayer.getName() + "'s current cash amount is " + bidDependentPlayer.getCashAmount() + " dollars!");
                 System.out.println("Want to lose your money on horse racing? type \"no\" for exit or anything else to continue:");
                 if(br.readLine().equals("no")){
@@ -35,12 +35,15 @@ public class HorseRaceOrganizer {
             }
         }
         catch (NumberFormatException ex){
-            System.out.println("Wrong number format, system shutting down...");
+            System.err.println("Wrong number format, system shutting down...");
         }
         catch (IOException ex) {
-            System.out.println("You broke the system...shutting down...");
+            System.err.println("You broke the system...shutting down...");
         } catch (InterruptedException e) {
             e.printStackTrace();
+        } finally {
+            br.close();
         }
+        br.close();
     }
 }
