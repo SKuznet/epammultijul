@@ -1,4 +1,4 @@
-package hw6.Conditional;
+package hw7.Conditional;
 
 public enum CatState {
     HUNGRY,

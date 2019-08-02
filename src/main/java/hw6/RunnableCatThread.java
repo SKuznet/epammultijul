@@ -1,6 +1,6 @@
-package hw5;
+package hw6;
 
-import hw6.Conditional.CatState;
+import hw7.Conditional.CatState;
 
 import java.util.concurrent.Semaphore;
 import java.util.concurrent.TimeUnit;

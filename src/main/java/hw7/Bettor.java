@@ -1,4 +1,4 @@
-package hw6;
+package hw7;
 
 import java.util.Random;
 import java.util.concurrent.BrokenBarrierException;

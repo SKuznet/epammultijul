@@ -1,4 +1,4 @@
-package hw5;
+package hw6;
 
 import java.util.Random;
 import java.util.concurrent.CountDownLatch;

@@ -1,4 +1,4 @@
-package hw6.Conditional;
+package hw7.Conditional;
 
 import java.util.concurrent.locks.Condition;
 import java.util.concurrent.locks.ReentrantLock;

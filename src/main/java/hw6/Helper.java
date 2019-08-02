@@ -1,12 +1,12 @@
-package hw5;
+package hw6;
 
 import java.util.concurrent.Exchanger;
 
-public class TroubleMaker implements Runnable {
+public class Helper implements Runnable {
     private Exchanger<String> exchanger;
     private String string;
 
-    public TroubleMaker(Exchanger<String> exchanger) {
+    public Helper(Exchanger<String> exchanger) {
         this.exchanger = exchanger;
         new Thread(this).start();
     }
@@ -14,12 +14,11 @@ public class TroubleMaker implements Runnable {
     @Override
     public void run() {
         try {
-            exchanger.exchange("I need help!");
             string = exchanger.exchange("");
-            System.out.println("Troublemaker got: " + string);
+            System.out.println("Helper got: " + string);
+            exchanger.exchange("Here my help");
         } catch (InterruptedException e) {
             System.err.println("EXCEPTION!!!!");
         }
-
     }
 }
