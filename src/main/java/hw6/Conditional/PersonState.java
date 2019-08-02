@@ -1,4 +1,4 @@
-package hw6;
+package hw6.Conditional;
 
 public enum PersonState {
     NO_MONEY,

@@ -3,12 +3,12 @@ package com.epam.multi.lesson7;
 import java.util.concurrent.locks.Condition;
 import java.util.concurrent.locks.ReentrantLock;
 
-public class ConditionEx {
-
+public class ConditionExample {
     public static void main(String[] args) {
-        Store store =  new Store();
-        Manufacturer manufacturer =  new Manufacturer(store);
-        Consumer consumer =  new Consumer(store);
+        Store store = new Store();
+        Manufacturer manufacturer = new Manufacturer(store);
+        Consumer consumer = new Consumer(store);
+
         new Thread(manufacturer).start();
         new Thread(consumer).start();
     }
@@ -20,37 +20,50 @@ class Store {
     private int product;
 
     public Store() {
-        this.lock = new ReentrantLock();
-        this.condition = lock.newCondition();
+        lock = new ReentrantLock();
+        condition = lock.newCondition();
     }
 
     public void get() {
         lock.lock();
+
         try {
-            while (product < 1){
+            while (product < 1) {
+                // infinity sleep
                 condition.await();
             }
+
             product--;
-            System.out.println("Buyer bought 1 prod");
-            System.out.println("left: " + product);
+
+            System.out.println("Buyer buy 1 product");
+            System.out.println("Products on storage: " + product);
+
             condition.signalAll();
         } catch (InterruptedException e) {
             e.printStackTrace();
         } finally {
             lock.unlock();
         }
+
     }
 
     public void put() {
         lock.lock();
+
         try {
-            while (product >= 3){
+            while (product >= 3) {
                 condition.await();
             }
+
             product++;
-            System.out.println("Manufacturer add 1 prod");
-            System.out.println("left: " + product);
+
+            System.out.println("Manufacturer added 1 new product");
+            System.out.println("Products on storage: " + product);
+
+            // signal to all
             condition.signalAll();
+
+
         } catch (InterruptedException e) {
             e.printStackTrace();
         } finally {
