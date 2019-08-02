@@ -1,6 +1,8 @@
 package com.epam.multi.homework3;
 
 import java.math.BigDecimal;
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
 
 /**
  * Singleton class ATM has logic of ATM with getMoney class protected from multithreading operations
@@ -53,12 +55,12 @@ public class ATM {
      * Initializes three customers trying to took money in the same time
      */
     public static void main(String[] args) {
-        Customer c1 = new Customer(1, "10000");
-        Customer c2 = new Customer(2, "70000");
-        Customer c3 = new Customer(3, "950000");
+        ExecutorService executorService = Executors.newCachedThreadPool();
 
-        new Thread(c1).start();
-        new Thread(c2).start();
-        new Thread(c3).start();
+        executorService.submit(new Customer(1, "10000"));
+        executorService.submit(new Customer(2, "70000"));
+        executorService.submit(new Customer(3, "950000"));
+
+        executorService.shutdown();
     }
 }
