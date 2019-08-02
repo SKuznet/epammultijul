@@ -30,7 +30,7 @@ public class HorseRaceOrganizer {
                 if (bidDependentPlayer.getCurrentBid() > bidDependentPlayer.getCashAmount()) {
                     throw new IOException();
                 }
-                new HorseRacingClubMain(nHorses, pause, bidDependentPlayer, countDownLatch);
+                new HorseRacingClub(nHorses, pause, bidDependentPlayer, countDownLatch);
                 countDownLatch.await();
             }
         }

@@ -5,13 +5,13 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.concurrent.*;
 
-public class HorseRacingClubMain {
+public class HorseRacingClub {
     private static final int FINISH_LINE = 20;
     private List<Horse> horses = new ArrayList();
     private ExecutorService executorService = Executors.newCachedThreadPool();
     private CyclicBarrier cyclicBarrier;
 
-    public HorseRacingClubMain(int nHorses, final int pause, final BidDependentPlayer bidDependentPlayer, final CountDownLatch countDownLatch) {
+    public HorseRacingClub(int nHorses, final int pause, final BidDependentPlayer bidDependentPlayer, final CountDownLatch countDownLatch) {
         System.out.println("Player " + bidDependentPlayer.getName() + " placed a bid on horse number " + bidDependentPlayer.getCurrentHorseNumber());
         cyclicBarrier = new CyclicBarrier(nHorses, new Runnable() {
 

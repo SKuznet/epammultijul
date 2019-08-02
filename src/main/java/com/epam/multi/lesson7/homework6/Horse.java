@@ -19,14 +19,12 @@ public class Horse implements Runnable {
         return strides;
     }
 
-
     public void run() {
         try {
             while (!Thread.interrupted()) {
                 synchronized (this) {
                     strides += random.nextInt(3);
                 }
-
                 cyclicBarrier.await();
             }
         } catch (InterruptedException e) {
@@ -53,6 +51,7 @@ public class Horse implements Runnable {
     public int getId() {
         return id;
     }
+
     public static void restart(){
         counter = 0;
     }
