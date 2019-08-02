@@ -37,10 +37,6 @@ public class Player {
 
     @Override
     public String toString() {
-        return "Player{" +
-                "name='" + name + '\'' +
-                ", cash=" + cash +
-                ", winStreak=" + winStreak +
-                '}';
+        return "Name = " + name + ", cash = " + cash;
     }
 }
