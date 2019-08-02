@@ -1,4 +1,4 @@
-package com.epam.multi.lesson1.hw1;
+package com.epam.multi.homeWorks.hw1;
 
 public class Main {
     public static void main(String[] args) {

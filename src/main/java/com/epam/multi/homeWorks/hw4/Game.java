@@ -1,12 +1,11 @@
-package com.epam.multi.lesson7.hw;
+package com.epam.multi.homeWorks.hw4;
 
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
+
 //НЕ РАБОТАЕТ :(
 public class Game {
     private int nHorses = 7;

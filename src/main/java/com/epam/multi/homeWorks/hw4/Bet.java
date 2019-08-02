@@ -1,4 +1,4 @@
-package com.epam.multi.lesson7.hw;
+package com.epam.multi.homeWorks.hw4;
 
 public class Bet {
     private int bet;

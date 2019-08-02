@@ -1,4 +1,4 @@
-package com.epam.multi.lesson4.hw.task1;
+package com.epam.multi.homeWorks.hw3.task1;
 
 public class User {
     private String name;

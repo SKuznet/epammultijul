@@ -1,4 +1,4 @@
-package com.epam.multi.lesson3.hw2;
+package com.epam.multi.homeWorks.hw2;
 
 public class TestRunnable implements Runnable {
 

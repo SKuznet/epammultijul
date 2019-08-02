@@ -1,4 +1,4 @@
-package com.epam.multi.lesson3.hw2;
+package com.epam.multi.homeWorks.hw2;
 
 import java.util.ArrayList;
 import java.util.concurrent.ExecutionException;

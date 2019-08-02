@@ -1,4 +1,4 @@
-package com.epam.multi.lesson7.hw;
+package com.epam.multi.homeWorks.hw4;
 
 import java.util.List;
 import java.util.Random;

@@ -1,9 +1,8 @@
-package com.epam.multi.lesson7.hw;
+package com.epam.multi.homeWorks.hw4;
 
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Random;
 import java.util.concurrent.*;
 
 public class GamesCyclicBarrier implements Runnable {
