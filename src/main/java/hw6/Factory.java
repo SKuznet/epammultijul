@@ -31,5 +31,6 @@ public class Factory {
         Thread cleaner = new Thread(new Cleaner(exchanger));
         //Cleaner cleans received car, sets parameter isCleaned to true, and shows its status
         executorService.execute(cleaner);
+        executorService.shutdown();
     }
 }
