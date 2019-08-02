@@ -1,4 +1,4 @@
-package com.epam.multi.lesson6.hw4;
+package com.epam.multi.lesson6.hw4.semaphore;
 
 import java.util.concurrent.Semaphore;
 import java.util.concurrent.TimeUnit;
