@@ -27,7 +27,6 @@ public class ATM {
                 if (result == null) {
                     instance = result = new ATM();
                 }
-
             }
         }
         return result;
@@ -60,7 +59,6 @@ public class ATM {
         executorService.submit(new Customer(1, "10000"));
         executorService.submit(new Customer(2, "70000"));
         executorService.submit(new Customer(3, "950000"));
-
         executorService.shutdown();
     }
 }
