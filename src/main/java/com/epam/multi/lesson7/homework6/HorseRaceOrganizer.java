@@ -40,7 +40,7 @@ public class HorseRaceOrganizer {
         catch (IOException ex) {
             System.err.println("You broke the system...shutting down...");
         } catch (InterruptedException e) {
-            e.printStackTrace();
+            System.err.println("You broke the system...shutting down...");
         } finally {
             br.close();
         }
