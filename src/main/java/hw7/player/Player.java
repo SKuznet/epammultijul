@@ -4,7 +4,7 @@ package hw7.player;
  * Naive guy who wants to lose his money
  */
 public class Player {
-    Account account;
+    private Account account;
 
     public Player(int money) {
         account = new Account(money);
