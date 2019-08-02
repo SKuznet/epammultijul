@@ -1,4 +1,4 @@
-package com.epam.multi.lesson1.hw1;
+package hw1;
 
 import org.junit.Test;
 
