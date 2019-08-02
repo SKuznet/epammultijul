@@ -1,7 +1,5 @@
 package com.epam.multi.lesson6.hw4.semaphore;
 
-import com.epam.multi.lesson6.hw4.semaphore.GameRoom;
-
 import java.util.concurrent.Semaphore;
 
 public class GameRoomWithSemaphoreApp {
