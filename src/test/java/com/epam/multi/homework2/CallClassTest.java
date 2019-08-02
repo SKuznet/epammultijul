@@ -16,7 +16,6 @@ public class CallClassTest {
     public void call() throws Exception {
         ExecutorService executorService = Executors.newCachedThreadPool();
         Future<String> list = executorService.submit(new CallClass(0));
-
         assertEquals(callReturn + 0, list.get());
         assertNotEquals(callReturn + 1, list.get());
     }

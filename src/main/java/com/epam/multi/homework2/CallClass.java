@@ -14,7 +14,7 @@ public class CallClass implements Callable<String> {
     }
 
     /**
-     * Make thread sleep before returning id
+     * Make thread sleep before returning id into list
      * @return id of thread
      * */
     @Override
