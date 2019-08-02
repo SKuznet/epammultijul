@@ -52,4 +52,9 @@ class Bettor implements Runnable {
         return "Bettor " + id + " set on horse " + horse + " : " + bet + " dollars";
     }
 
+    public String winningPhrase() {
+        return horse + " horse won : " + " bettor " + id + " won " + bet*2 + " dollars";
+    }
+
+
 }

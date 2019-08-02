@@ -17,8 +17,8 @@ public class Race {
     private int flag;
     private int circleNumber;
 
-    public Race(int nHorses, final int pause) {
-        cyclicBarrier = new CyclicBarrier(nHorses, new Runnable() {
+    public Race(int barrierNumber, final int pause) {
+        cyclicBarrier = new CyclicBarrier(barrierNumber, new Runnable() {
             @Override
             public void run() {
                 for (Bettor bettor : bettors) {
@@ -29,7 +29,7 @@ public class Race {
                 for (Bettor bettor : bettors) {
                     if (circleNumber >= FINISH_LINE) {
                         if (bettor.getHorse() == horse) {
-                            System.out.println(bettor + " won!");
+                            System.out.println(bettor.winningPhrase());
                         }
                         flag++;
                     }
@@ -46,7 +46,7 @@ public class Race {
             }
         });
 
-        for (int i = 0; i < nHorses; i++) {
+        for (int i = 0; i < barrierNumber; i++) {
             Bettor bettor = new Bettor(cyclicBarrier);
             bettors.add(bettor);
             executorService.execute(bettor);
