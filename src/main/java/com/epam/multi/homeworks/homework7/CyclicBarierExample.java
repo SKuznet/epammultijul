@@ -3,6 +3,7 @@ package com.epam.multi.homeworks.homework7;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
+import java.util.Scanner;
 import java.util.concurrent.*;
 
 public class CyclicBarierExample {
@@ -10,14 +11,14 @@ public class CyclicBarierExample {
     private List<Horse> horses = new ArrayList<>();
     private ExecutorService executorService = Executors.newCachedThreadPool();
     private CyclicBarrier cyclicBarrier;
+    private int winer;
 
-    public CyclicBarierExample(int nHorses, final int pause) {
+    public CyclicBarierExample(int nHorses, final int pause, final int horseNumber) {
         cyclicBarrier = new CyclicBarrier(nHorses, new Runnable() {
             @Override
             public void run() {
                 StringBuilder builder = new StringBuilder();
                 for (int i = 0; i < FINISH_LINE; i++) {
-                    // fence
                     builder.append("=");
                 }
 
@@ -30,6 +31,11 @@ public class CyclicBarierExample {
                 for (Horse horse : horses) {
                     if (horse.getStrides() >= FINISH_LINE) {
                         System.out.println(horse + "won!");
+                        if (horseNumber == horse.getId()) {
+                            System.out.println("And you won!");
+                        } else {
+                            System.out.println("But didn't you");
+                        }
                         executorService.shutdownNow();
                         return;
                     }
@@ -51,9 +57,16 @@ public class CyclicBarierExample {
     }
 
     public static void main(String[] args) {
-        int nHorses = 7;
-        int pause  = 200;
-        new CyclicBarierExample(nHorses, pause);
+        int nHorses = 4;
+        int pause = 200;
+
+        Scanner scanner = new Scanner(System.in);
+        int horse = -1;
+        while (horse < 0 || horse > nHorses) {
+            System.out.println("Select a horse:");
+            horse = scanner.nextInt();
+        }
+        new CyclicBarierExample(nHorses, pause, horse);
     }
 }
 
@@ -83,7 +96,6 @@ class Horse implements Runnable {
                 cyclicBarrier.await();
             }
         } catch (InterruptedException e) {
-            // never repeat this
         } catch (BrokenBarrierException e) {
             throw new RuntimeException();
         }
@@ -96,10 +108,14 @@ class Horse implements Runnable {
 
     public String tracks() {
         StringBuilder stringBuilder = new StringBuilder();
-        for (int i = 0; i <  getStrides(); i++) {
+        for (int i = 0; i < getStrides(); i++) {
             stringBuilder.append("*");
         }
         stringBuilder.append(id);
         return stringBuilder.toString();
+    }
+
+    public int getId() {
+        return id;
     }
 }
