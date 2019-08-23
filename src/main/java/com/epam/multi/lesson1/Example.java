@@ -3,7 +3,7 @@ package com.epam.multi.lesson1;
 public class Example {
 
     public static void main(String[] args) {
-       getThread().start();
+        getThread().start();
     }
 
     private static Thread getThread() {
