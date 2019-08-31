@@ -18,7 +18,7 @@ public class Main {
                         timeLimits[i] = Integer.valueOf(reader.readLine());
                         break;
                     } catch (NumberFormatException e) {
-                        System.out.println("Wrong data type!");
+                        System.err.println("Wrong data type!");
                     }
                 }
             }
