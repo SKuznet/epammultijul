@@ -9,7 +9,7 @@ public class PriorityExample implements Runnable {
     private void myPriority() {
         for (int i = 0; i < 10; i++) {
             System.out.println(
-                    "Hi i am " + Thread.currentThread().getName() + ", and my priority is " + Thread
+                    "Hi i'm " + Thread.currentThread().getName() + ", and my priority is " + Thread
                             .currentThread().getPriority());
         }
     }
